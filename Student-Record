@@ -1,0 +1,63 @@
+import sqlite3
+conn = sqlite3.connect('students.db')
+cur = conn.cursor()
+conn.commit()
+
+#add-student
+def add_student():
+    name = input("Name: ")
+    age = input("Age: ")
+    grade = input("Grade: ")
+    cur.execute("INSERT INTO students (name, age, grade) VALUES (?, ?, ?)", (name, age, grade))
+    conn.commit()
+    print("Student added.\n")
+
+#view-student
+def view_students():
+    cur.execute("SELECT * FROM students")
+    rows = cur.fetchall()
+    if not rows:
+        print("No students yet.\n")
+        return
+    print(f"\n{'ID':<5}{'Name':<15}{'Age':<6}{'Grade':<6}")
+    for row in rows:
+        print(f"{row[0]:<5}{row[1]:<15}{row[2]:<6}{row[3]:<6}")
+    print()
+
+# update-student
+def update_student():
+    student_id = input("Enter ID of student to update: ")
+    new_grade = input("New grade: ")
+    cur.execute("UPDATE students SET grade = ? WHERE id = ?", (new_grade, student_id))
+    conn.commit()
+    print("Student updated.\n" if cur.rowcount else "No student with that ID.\n")
+
+# delete-student
+def delete_student():
+    student_id = input("Enter ID of student to delete: ")
+    cur.execute("DELETE FROM students WHERE id = ?", (student_id,))
+    conn.commit()
+    print("Student deleted.\n" if cur.rowcount else "No student with that ID.\n")
+
+#choice-menu
+def menu():
+    while True:
+        print("1. Add student\n2. View all students\n3. Update grade\n4. Delete student\n5. Exit")
+        choice = input("Choose an option: ")
+        if choice == '1':
+            add_student()
+        elif choice == '2':
+            view_students()
+        elif choice == '3':
+            update_student()
+        elif choice == '4':
+            delete_student()
+        elif choice == '5':
+            break
+        else:
+            print("Invalid option.\n")
+
+    conn.close()
+
+if __name__ == '__main__':
+    menu()
