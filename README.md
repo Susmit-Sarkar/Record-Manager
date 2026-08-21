@@ -3,6 +3,7 @@ A menu-driven command-line app to manage student records. Built with just Python
 
 What it covers
 SQL: CREATE TABLE, INSERT, SELECT, UPDATE, DELETE
+
 Python: functions, a while-loop menu, input(), basic SQLite usage
 
 For inputs- 
