@@ -1,0 +1,59 @@
+The ouput is shown in the below format-
+
+# Add Student
+1. Add student
+2. View all students
+3. Update grade
+4. Delete student
+5. Exit
+Choose an option: 1
+Name: Ayush
+Age: 23
+Grade: XII
+Student added.
+
+# View All Students
+1. Add student
+2. View all students
+3. Update grade
+4. Delete student
+5. Exit
+Choose an option: 2
+
+ID   Name           Age   Grade 
+1    Susmit         18    XII   
+3    Jahir          20    XII   
+4    Ayush          23    XII   
+
+# Update Grade
+1. Add student
+2. View all students
+3. Update grade
+4. Delete student
+5. Exit
+Choose an option: 3
+Enter ID of student to update: 3
+New grade: X
+Student updated.
+
+# Delete Student
+1. Add student
+2. View all students
+3. Update grade
+4. Delete student
+5. Exit
+Choose an option: 4
+Enter ID of student to delete: 3
+
+ID   Name           Age   Grade 
+1    Susmit         18    XII   
+4    Ayush          23    2   
+
+1. Add student
+2. View all students
+3. Update grade
+4. Delete student
+5. Exit
+Choose an option: 5
+
+Process finished with exit code 0
